@@ -14,6 +14,15 @@ export default class Login extends Component {
 
     // END STATE
 
+    handleChange = e => {
+        this.setState({
+          credentials: {
+            ...this.state.credentials,
+            [e.target.name]: e.target.value
+          }
+        });
+      };
+
     login = e => {
         e.preventDefault();
     axios.post('http://localhost:5000/api/login', this.state.credentials)
